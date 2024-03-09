@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
+const User = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
 
 const SignUpController = asyncHandler(async (req, res) => {
