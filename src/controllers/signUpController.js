@@ -4,9 +4,9 @@ const User = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
 
 const SignUpController = asyncHandler(async (req, res) => {
-  let { name, email, password, domain } = req.body;
+  let { name, email, password } = req.body;
 
-  if (!name || !email || !password || !domain) {
+  if (!name || !email || !password) {
     res.status(200);
     throw new Error("All fields needed");
   }
@@ -28,7 +28,6 @@ const SignUpController = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
-    domain,
   });
 
   if (user) {

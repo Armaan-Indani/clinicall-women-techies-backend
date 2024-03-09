@@ -3,6 +3,6 @@ const SignUpController = require("../controllers/signUpController");
 
 const signup = express.Router();
 
-signup.post("/");
+signup.post("/", SignUpController);
 
 module.exports = signup;

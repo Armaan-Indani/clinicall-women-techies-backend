@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const login = require("./routes/login");
 const signup = require("./routes/signup");
-// const profile = require("./routes/profile");
 const connectToDB = require("./config/connectDB");
 const dotenv = require("dotenv").config();
 
@@ -20,7 +19,6 @@ app.get("/", (req, res) => {
 
 app.use("/signup", signup);
 app.use("/login", login);
-// app.use("/profile", profile);
 
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);
