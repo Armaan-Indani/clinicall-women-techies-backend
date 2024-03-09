@@ -4,6 +4,7 @@ const login = require("./routes/login");
 const signup = require("./routes/signup");
 const connectToDB = require("./config/connectDB");
 const dotenv = require("dotenv").config();
+const bodyParser = require("body-parser");
 
 connectToDB();
 
@@ -12,6 +13,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
