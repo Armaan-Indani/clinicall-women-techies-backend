@@ -22,19 +22,22 @@ const LoginController = asyncHandler(async (req, res) => {
     const accessToken = jwt.sign(
       {
         user: {
-          name: user.name,
+          id: user._id,
           email: user.email,
-          domain: user.domain,
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
         expiresIn: "30m",
+      },
+      (err, token) => {
+        if (err) {
+          return res.json({ message: "Error", error: err });
+        }
+        res.status(200);
+        return res.json({ message: "Success", token: "Bearer " + token });
       }
     );
-
-    res.status(200);
-    res.json({ accessToken });
   } else {
     res.status(401);
     throw new Error("Email or password is not valid");
