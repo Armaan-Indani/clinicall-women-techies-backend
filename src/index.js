@@ -6,7 +6,7 @@ const connectToDB = require("./config/connectDB");
 const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const profile = require("./routes/profile");
-const verifyToken = require("./routes/verify-token");
+const verifytoken = require("./routes/verify-token");
 
 connectToDB();
 
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 app.use("/signup", signup);
 app.use("/login", login);
 app.use("/profile", profile);
-app.use("/verify-token", verifyToken);
+app.use("/verify-token", verifytoken);
 
 app.listen(port, () => {
   console.log(`App listening on http://localhost:${port}`);

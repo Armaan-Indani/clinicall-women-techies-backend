@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema(
+const doctorSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -13,16 +13,7 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Please enter the user password"],
-    },
-    verified: {
-      type: Boolean,
-      default: false,
-    },
-    verifiedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Doctor",
-      default: null,
+      required: [true, "Please enter the doctor password"],
     },
   },
   {
@@ -30,6 +21,6 @@ const userSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const Doctor = mongoose.model("Doctor", doctorSchema);
 
-module.exports = User;
+module.exports = Doctor;
